@@ -1,0 +1,39 @@
+<div>
+  <div class="row">
+    <div class="col-12 col-md-4 align-content-center">
+      <app-grafico-pizza [pieData]="piedata"></app-grafico-pizza>
+    </div>
+    <div class="col-12 col-md-8">
+      <h3>
+        <strong>Informações sobre o grafico</strong>
+      </h3>
+      <br />
+      <ul>
+        <li *ngFor="let dados of piedata" class="d-flex">
+          <div
+            [style]="
+              'min-width: 20px; max-height:20px; margin-right:8px; background-color:' +
+              dados.color
+            "
+          ></div>
+          Refere-se aos valores de {{ dados.label }}. {{ dados.definicao }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-12 col-md-4">
+      <h3>
+        <strong>Informações sobre o grafico</strong>
+      </h3>
+      <ul>
+        <li *ngFor="let dados of bardata">
+          {{ dados.label }}. {{ dados.definicao }}
+        </li>
+      </ul>
+    </div>
+    <div class="col-12 col-md-8">
+      <app-grafico-coluna [chartData]="bardata"></app-grafico-coluna>
+    </div>
+  </div>
+</div>
